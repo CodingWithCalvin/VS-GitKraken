@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CommandTable xmlns="http://schemas.microsoft.com/VisualStudio/2005-10-18/CommandTable" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+	<Extern href="stdidcmd.h"/>
+	<Extern href="vsshlids.h"/>
+
+	<Commands package="guidPackage">
+		<Buttons>
+			<Button guid="guidOpenInGKCmdSet" id="OpenInGK" priority="0x0100" type="Button">
+				<Parent guid="guidSHLMainMenu" id="IDG_VS_CTXT_FOLDER_EXPLORE" />
+				<Icon guid="guidIcons" id="GitKraken" />
+				<Strings>
+					<ButtonText>Open Repository in GitKraken</ButtonText>
+				</Strings>
+			</Button>
+		</Buttons>
+
+		<Bitmaps>
+			<Bitmap guid="guidIcons" usedList="GitKraken" href="Resources/keif.png" />
+		</Bitmaps>
+	</Commands>
+
+	<CommandPlacements>
+		<CommandPlacement guid="guidOpenInGKCmdSet" id="OpenInGK" priority="0x0500">
+			<Parent guid="guidSHLMainMenu" id="IDG_VS_CTXT_SOLUTION_EXPLORE"/>
+		</CommandPlacement>
+	</CommandPlacements>
+
+	<Symbols>
+		<!-- This is the package guid. -->
+		<GuidSymbol name="guidPackage" value="{A0117989-26FE-4409-AF6B-DB16115DCF3A}" />
+
+		<GuidSymbol name="guidOpenInGKCmdSet" value="{F6086186-9021-452D-9D3B-B46CA285A57D}">
+			<IDSymbol name="OpenInGK" value="0x0100" />
+		</GuidSymbol>
+
+		<GuidSymbol name="guidIcons" value="{A6058340-772E-4DD9-A796-1C36106495BD}">
+			<IDSymbol name="GitKraken" value="1" />
+		</GuidSymbol>
+	</Symbols>
+</CommandTable>
