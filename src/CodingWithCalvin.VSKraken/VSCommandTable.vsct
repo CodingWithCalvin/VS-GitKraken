@@ -16,7 +16,7 @@
 		</Buttons>
 
 		<Bitmaps>
-			<Bitmap guid="guidIcons" usedList="GitKraken" href="Resources/keif.png" />
+			<Bitmap guid="guidIcons" usedList="GitKraken" href="Resources/context-menu-icon.png" />
 		</Bitmaps>
 	</Commands>
 

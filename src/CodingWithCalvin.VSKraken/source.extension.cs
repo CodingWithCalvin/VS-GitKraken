@@ -12,7 +12,7 @@ namespace CodingWithCalvin.VSKraken
         public const string Description = @"Adds a context menu item to the solution explorer (specifically the Solution Node context menu), to open the underlying Git repository in GitKraken.";
         public const string Language = "en-US";
         public const string Version = "1.0";
-        public const string Author = "Calvin A. Allen";
-        public const string Tags = "";
+        public const string Author = "Coding with Calvin";
+        public const string Tags = "gitkraken, git, keif";
     }
 }

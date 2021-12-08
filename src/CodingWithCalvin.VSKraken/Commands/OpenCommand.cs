@@ -75,10 +75,7 @@ namespace CodingWithCalvin.VSKraken.Commands
                 UseShellExecute = false
             };
 
-            using (System.Diagnostics.Process.Start(startInfo))
-            {
-                //TODO : Should this be empty?
-            }
+            using (System.Diagnostics.Process.Start(startInfo)) { }
         }
     }
 }

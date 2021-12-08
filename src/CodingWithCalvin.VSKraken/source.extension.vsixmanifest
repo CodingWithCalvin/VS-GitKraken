@@ -1,21 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
-	<Metadata>
-		<Identity Id="3b2236f5-9165-48ce-a802-c10009837980" Version="1.0" Language="en-US" Publisher="Calvin A. Allen" />
-		<DisplayName>Open Repository in GitKraken</DisplayName>
-		<Description xml:space="preserve">Adds a context menu item to the solution explorer (specifically the Solution Node context menu), to open the underlying Git repository in GitKraken.</Description>
-	</Metadata>
-	<Installation>
-		<InstallationTarget Id="Microsoft.VisualStudio.Community" Version="[17.0,18.0)">
-			<ProductArchitecture>amd64</ProductArchitecture>
-		</InstallationTarget>
-	</Installation>
-	<Dependencies>
-	</Dependencies>
-	<Prerequisites>
-		<Prerequisite Id="Microsoft.VisualStudio.Component.CoreEditor" Version="[17.0,18.0)" DisplayName="Visual Studio core editor" />
-	</Prerequisites>
-	<Assets>
-		<Asset Type="Microsoft.VisualStudio.VsPackage" d:Source="Project" d:ProjectName="%CurrentProject%" Path="|%CurrentProject%;PkgdefProjectOutputGroup|" />
-	</Assets>
+    <Metadata>
+        <Identity Id="3b2236f5-9165-48ce-a802-c10009837980" Version="1.0" Language="en-US" Publisher="Coding with Calvin" />
+        <DisplayName>Open Repository in GitKraken</DisplayName>
+        <Description xml:space="preserve">Adds a context menu item to the solution explorer (specifically the Solution Node context menu), to open the underlying Git repository in GitKraken.</Description>
+        <MoreInfo>https://github.com/CalvinAllen/VSKraken</MoreInfo>
+        <Tags>gitkraken, git, keif</Tags>
+    </Metadata>
+    <Installation>
+        <InstallationTarget Id="Microsoft.VisualStudio.Community" Version="[17.0,18.0)">
+            <ProductArchitecture>amd64</ProductArchitecture>
+        </InstallationTarget>
+    </Installation>
+    <Dependencies>
+    </Dependencies>
+    <Prerequisites>
+        <Prerequisite Id="Microsoft.VisualStudio.Component.CoreEditor" Version="[17.0,18.0)" DisplayName="Visual Studio core editor" />
+    </Prerequisites>
+    <Assets>
+        <Asset Type="Microsoft.VisualStudio.VsPackage" d:Source="Project" d:ProjectName="%CurrentProject%" Path="|%CurrentProject%;PkgdefProjectOutputGroup|" />
+    </Assets>
 </PackageManifest>
