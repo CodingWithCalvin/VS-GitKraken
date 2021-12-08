@@ -6,18 +6,22 @@ using EnvDTE80;
 using EnvDTE;
 using System.Windows.Forms;
 using CodingWithCalvin.VSKraken.Helpers;
+using CodingWithCalvin.VSKraken.Dialogs;
 
 namespace CodingWithCalvin.VSKraken.Commands
 {
     internal class OpenCommand
     {
-        private readonly Package package;
-        public static OpenCommand Instance { get; private set; }
-        private IServiceProvider ServiceProvider => this.package;
+        private readonly Package _package;
+        private readonly SettingsDialogPage _settings;
 
-        private OpenCommand(Package package)
+        public static OpenCommand Instance { get; private set; }
+        private IServiceProvider ServiceProvider => this._package;
+
+        private OpenCommand(Package package, SettingsDialogPage settings)
         {
-            this.package = package;
+            this._package = package;
+            this._settings = settings;
 
             var commandService = (OleMenuCommandService)ServiceProvider.GetService(typeof(IMenuCommandService));
 
@@ -29,9 +33,9 @@ namespace CodingWithCalvin.VSKraken.Commands
             }
         }
 
-        public static void Initialize(Package package)
+        public static void Initialize(Package package, SettingsDialogPage settings)
         {
-            Instance = new OpenCommand(package);
+            Instance = new OpenCommand(package, settings);
         }
 
         private void OpenPath(object sender, EventArgs e)
@@ -41,10 +45,12 @@ namespace CodingWithCalvin.VSKraken.Commands
             {
                 ThreadHelper.ThrowIfNotOnUIThread();
 
-                var selectedFilePath = ProjectHelpers.GetSelectedPath(service);
-                if (!string.IsNullOrEmpty(selectedFilePath))
+                var gitRepository = ProjectHelpers.GetSelectedPath(service);
+                var gitkrakenPath = _settings.FolderPath;
+
+                if (!string.IsNullOrEmpty(gitRepository) && !string.IsNullOrEmpty(gitkrakenPath))
                 {
-                    OpenExecutable(selectedFilePath);
+                    OpenExecutable(gitRepository, gitkrakenPath);
                 }
                 else
                 {
@@ -57,15 +63,16 @@ namespace CodingWithCalvin.VSKraken.Commands
             }
         }
 
-        private static void OpenExecutable(string gitRepository)
+        private static void OpenExecutable(string gitRepository, string gitkrakenPath)
         {
             var startInfo = new ProcessStartInfo
             {
                 WorkingDirectory = gitRepository,
-                FileName = "gitkraken",
-                //Arguments = $"-p \"{gitRepository}\"",
+                FileName = $@"{gitkrakenPath}\update.exe",
+                Arguments = $@"--processStart=gitkraken.exe --process-start-args=""-p ""{ gitRepository }""",
                 CreateNoWindow = true,
-                WindowStyle = ProcessWindowStyle.Hidden
+                WindowStyle = ProcessWindowStyle.Hidden,
+                UseShellExecute = false
             };
 
             using (System.Diagnostics.Process.Start(startInfo))

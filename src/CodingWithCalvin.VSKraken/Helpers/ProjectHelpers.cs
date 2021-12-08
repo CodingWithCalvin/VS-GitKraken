@@ -16,10 +16,6 @@ namespace CodingWithCalvin.VSKraken.Helpers
 			{
 				switch (selectedItem.Object)
 				{
-					//case ProjectItem projectItem:
-					//	return projectItem.FileNames[1];
-					//case Project project:
-					//	return project.FullName;
 					case Solution solution:
 						return Directory.GetParent(solution.FileName).FullName;
 				}

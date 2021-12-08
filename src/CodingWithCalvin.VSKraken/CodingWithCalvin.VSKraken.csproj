@@ -46,6 +46,9 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Commands\OpenCommand.cs" />
+    <Compile Include="Dialogs\SettingsDialogPage.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Helpers\ProjectHelpers.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="source.extension.cs">
