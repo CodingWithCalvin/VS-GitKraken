@@ -46,11 +46,11 @@ namespace CodingWithCalvin.VSKraken.Commands
                 ThreadHelper.ThrowIfNotOnUIThread();
 
                 var gitRepository = ProjectHelpers.GetSelectedPath(service);
-                var gitkrakenPath = _settings.FolderPath;
+                var gitkrakenUpdateExecutablePath = _settings.UpdateExecutablePath;
 
-                if (!string.IsNullOrEmpty(gitRepository) && !string.IsNullOrEmpty(gitkrakenPath))
+                if (!string.IsNullOrEmpty(gitRepository) && !string.IsNullOrEmpty(gitkrakenUpdateExecutablePath))
                 {
-                    OpenExecutable(gitRepository, gitkrakenPath);
+                    OpenExecutable(gitRepository, gitkrakenUpdateExecutablePath);
                 }
                 else
                 {
@@ -63,12 +63,12 @@ namespace CodingWithCalvin.VSKraken.Commands
             }
         }
 
-        private static void OpenExecutable(string gitRepository, string gitkrakenPath)
+        private static void OpenExecutable(string gitRepository, string gitkrakenUpdateExecutablePath)
         {
             var startInfo = new ProcessStartInfo
             {
                 WorkingDirectory = gitRepository,
-                FileName = $@"{gitkrakenPath}\update.exe",
+                FileName = $@"{gitkrakenUpdateExecutablePath}",
                 Arguments = $@"--processStart=gitkraken.exe --process-start-args=""-p ""{ gitRepository }""",
                 CreateNoWindow = true,
                 WindowStyle = ProcessWindowStyle.Hidden,

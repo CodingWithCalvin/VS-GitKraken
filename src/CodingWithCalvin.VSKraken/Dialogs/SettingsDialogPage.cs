@@ -9,19 +9,19 @@ namespace CodingWithCalvin.VSKraken.Dialogs
 	{
 		[Category("General")]
 		[DisplayName("GitKraken Installation Path")]
-		[Description("The absolute path to GitKraken's \"Update.exe\" file, not including the executable")]
-		public string FolderPath { get; set; }
+		[Description("The absolute path to GitKraken's \"Update.exe\" file, including the executable.")]
+		public string UpdateExecutablePath { get; set; }
 
 		public override void LoadSettingsFromStorage()
 		{
 			base.LoadSettingsFromStorage();
 
-			if (!string.IsNullOrEmpty(this.FolderPath))
+			if (!string.IsNullOrEmpty(this.UpdateExecutablePath))
 			{
 				return;
 			}
 
-			this.FolderPath = FindGitKrakenInstallDirectory();
+			this.UpdateExecutablePath = FindGitKrakenInstallDirectory();
 		}
 
 		private static string FindGitKrakenInstallDirectory()
@@ -33,7 +33,7 @@ namespace CodingWithCalvin.VSKraken.Dialogs
 				var path = Path.Combine(directory.FullName, "Update.exe");
 				if (File.Exists(path))
 				{
-					return directory.FullName;
+					return path;
 				}
 			}
 
