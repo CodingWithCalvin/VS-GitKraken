@@ -1,0 +1,37 @@
+name: 'Build and Deploy'
+  
+on:
+  push:
+    branches: master
+  
+jobs:
+  Release-Build-and-Deploy: 
+    runs-on: windows-2019
+    
+    steps:
+    - uses: actions/checkout@v2
+    - uses: microsoft/setup-msbuild@v1.0.2
+    
+    - name: 1. Increment Version
+      run: |
+        (new-object Net.WebClient).DownloadString("https://raw.githubusercontent.com/CalvinAllen/devops-scripts/master/gh-actions-set-vsix-version.ps1") | iex
+        Vsix-IncrementVersion `
+            -BuildNumber ${{ github.run_number }} `
+            -manifestFile './src/CodingWithCalvin.VSKraken/source.extension.vsixmanifest' `
+            -extensionSourceFile './src/CodingWithCalvin.VSKraken/source.extension.cs'
+      shell: powershell
+    
+    - name: 2. Bootstrapping NuGet Installer
+      uses: nuget/setup-nuget@v1
+    
+    - name: 3. Restoring Packages
+      run: nuget restore ./src/CodingWithCalvin.VSKraken.sln
+    
+    - name: 4. Building x64 Project
+      run: msbuild './src/CodingWithCalvin.VSKraken/CodingWithCalvin.VSKraken.csproj' /p:configuration='Release' /p:platform='x64'
+
+    - name: 5. Publishing x64 Build Artifact
+      uses: actions/upload-artifact@v2
+      with:
+        path: '${{ github.workspace }}\src\CodingWithCalvin.VSKraken\bin\x64\Release\CodingWithCalvin.VSKraken.vsix'
+        name: latest-x64
