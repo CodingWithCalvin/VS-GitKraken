@@ -8,8 +8,8 @@ namespace CodingWithCalvin.VSKraken
     internal sealed partial class Vsix
     {
         public const string Id = "3b2236f5-9165-48ce-a802-c10009837980";
-        public const string Name = "Open Repository in GitKraken";
-        public const string Description = @"Adds a context menu item to the solution explorer (specifically the Solution Node context menu), to open the underlying Git repository in GitKraken.";
+        public const string Name = "VS Kraken";
+        public const string Description = @"Adds a context menu item to the solution explorer (specifically the Solution Node context menu), to open the underlying Git repository in GitKraken - with more to come!";
         public const string Language = "en-US";
         public const string Version = "1.0";
         public const string Author = "Coding with Calvin";

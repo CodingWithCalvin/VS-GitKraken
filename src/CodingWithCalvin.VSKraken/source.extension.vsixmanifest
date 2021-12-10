@@ -2,8 +2,8 @@
 <PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
     <Metadata>
         <Identity Id="3b2236f5-9165-48ce-a802-c10009837980" Version="1.0" Language="en-US" Publisher="Coding with Calvin" />
-        <DisplayName>Open Repository in GitKraken</DisplayName>
-        <Description xml:space="preserve">Adds a context menu item to the solution explorer (specifically the Solution Node context menu), to open the underlying Git repository in GitKraken.</Description>
+        <DisplayName>VS Kraken</DisplayName>
+        <Description xml:space="preserve">Adds a context menu item to the solution explorer (specifically the Solution Node context menu), to open the underlying Git repository in GitKraken - with more to come!</Description>
         <MoreInfo>https://github.com/CalvinAllen/VSKraken</MoreInfo>
         <License>Resources\LICENSE.txt</License>
         <Icon>Resources\manifest-icon.png</Icon>
