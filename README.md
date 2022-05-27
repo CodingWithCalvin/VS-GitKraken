@@ -1,6 +1,6 @@
 # VS Kraken
 
-## License
+## License - MIT
 
 [![License - MIT](https://img.shields.io/github/license/CalvinAllen/VSKraken?style=for-the-badge)](https://img.shields.io/github/license/CalvinAllen/VSKraken?style=for-the-badge)
 
