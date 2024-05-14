@@ -8,7 +8,7 @@ A Visual Studio extension that adds a right-click context menu (on the solution 
 
 ## Build Status
 
-[![GitHub Workflow Status](https://img.shields.io/github/workflow/status/CodingWithCalvin/VS-GitKraken/Build%20and%20Deploy?logo=github&style=for-the-badge)](https://img.shields.io/github/workflow/status/CodingWithCalvin/VS-GitKraken/Build%20and%20Deploy?logo=github&style=for-the-badge)
+![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/CodingWithCalvin/VS-GitKraken/release_build_and_deploy.yml?style=for-the-badge)
 
 ## Marketplace Status
 
