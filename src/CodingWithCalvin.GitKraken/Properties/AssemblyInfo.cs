@@ -1,6 +1,6 @@
-﻿using CodingWithCalvin.VSKraken;
-using System.Reflection;
+﻿using System.Reflection;
 using System.Runtime.InteropServices;
+using CodingWithCalvin.GitKraken;
 
 [assembly: AssemblyTitle(Vsix.Name)]
 [assembly: AssemblyDescription(Vsix.Description)]

@@ -13,8 +13,8 @@
     <ProjectGuid>{1BC1A40B-9AB4-4A8F-914C-097660B9F084}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>CodingWithCalvin.VSKraken</RootNamespace>
-    <AssemblyName>CodingWithCalvin.VSKraken</AssemblyName>
+    <RootNamespace>CodingWithCalvin.GitKraken</RootNamespace>
+    <AssemblyName>CodingWithCalvin.GitKraken</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <GeneratePkgDefFile>true</GeneratePkgDefFile>
     <UseCodebase>true</UseCodebase>
@@ -63,9 +63,13 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>VSCommandTable.vsct</DependentUpon>
     </Compile>
-    <Compile Include="VSKrakenPackage.cs" />
+    <Compile Include="GitKrakenPackage.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="..\..\LICENSE">
+      <Link>resources\LICENSE</Link>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
     <None Include="source.extension.vsixmanifest">
       <SubType>Designer</SubType>
       <Generator>VsixManifestGenerator</Generator>
@@ -84,24 +88,20 @@
     <PackageReference Include="Microsoft.VSSDK.BuildTools" Version="17.0.5232" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\context-menu-icon.png" />
     <VSCTCompile Include="VSCommandTable.vsct">
       <ResourceName>Menus.ctmenu</ResourceName>
       <Generator>VsctGenerator</Generator>
       <LastGenOutput>VSCommandTable.cs</LastGenOutput>
     </VSCTCompile>
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Content Include="Resources\LICENSE.txt">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    <Content Include="..\..\resources\context-menu-icon.png">
+      <Link>resources\context-menu-icon.png</Link>
       <IncludeInVSIX>true</IncludeInVSIX>
     </Content>
-    <Content Include="Resources\manifest-icon.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <IncludeInVSIX>true</IncludeInVSIX>
-    </Content>
-    <Content Include="Resources\manifest-preview.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    <Content Include="..\..\resources\manifest-icon.png">
+      <Link>resources\manifest-icon.png</Link>
       <IncludeInVSIX>true</IncludeInVSIX>
     </Content>
   </ItemGroup>

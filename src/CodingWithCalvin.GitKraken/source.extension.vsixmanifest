@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
     <Metadata>
-        <Identity Id="3b2236f5-9165-48ce-a802-c10009837980" Version="1.0" Language="en-US" Publisher="Coding with Calvin" />
-        <DisplayName>VS Kraken</DisplayName>
+        <Identity Id="VS-GitKraken" Version="1.0" Language="en-US" Publisher="Coding With Calvin" />
+        <DisplayName>GitKraken</DisplayName>
         <Description xml:space="preserve">Adds a context menu item to the solution explorer (specifically the Solution Node context menu), to open the underlying Git repository in GitKraken - with more to come!</Description>
-        <MoreInfo>https://github.com/CalvinAllen/VSKraken</MoreInfo>
-        <License>Resources\LICENSE.txt</License>
-        <Icon>Resources\manifest-icon.png</Icon>
-        <PreviewImage>Resources\manifest-preview.png</PreviewImage>
+        <MoreInfo>https://github.com/CodingWithCalvin/VS-GitKraken</MoreInfo>
+        <License>resources\LICENSE</License>
+        <Icon>resources\manifest-icon.png</Icon>
         <Tags>gitkraken, git, keif</Tags>
     </Metadata>
     <Installation>

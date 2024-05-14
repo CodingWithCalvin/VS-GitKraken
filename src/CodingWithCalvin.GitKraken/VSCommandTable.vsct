@@ -16,7 +16,7 @@
 		</Buttons>
 
 		<Bitmaps>
-			<Bitmap guid="guidIcons" usedList="GitKraken" href="Resources/context-menu-icon.png" />
+			<Bitmap guid="guidIcons" usedList="GitKraken" href="../../resources/context-menu-icon.png" />
 		</Bitmaps>
 	</Commands>
 

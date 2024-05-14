@@ -2,34 +2,45 @@ name: 'Build and Deploy'
   
 on:
   workflow_dispatch:
+  pull_request:
+    types: [opened, reopened]
   push:
-    branches: main
+    branches: 
+      - main
+    tags-ignore:
+      - '[0-9]+.[0-9]+.[0-9]+.[0-9]+'
   
 jobs:
   Release-Build-and-Deploy: 
     runs-on: windows-latest
     
     steps:
-    - uses: actions/checkout@v3
-    - uses: microsoft/setup-msbuild@v1.3.1
-    
+    - uses: actions/checkout@v4
+    - uses: microsoft/setup-msbuild@v2
+    - uses: nuget/setup-nuget@v2
+
     - name: 1. Versioning Release
-      uses: CalvinAllen/action-vs-vsix-versioner@v1
+      id: step-version
+      uses: CodingWithCalvin/GHA-VSVsixVersioner@v1
       with:
-        extension-manifest-file: './src/CodingWithCalvin.VSKraken/source.extension.vsixmanifest'
-        extension-source-file: './src/CodingWithCalvin.VSKraken/source.extension.cs'
+        extension-manifest-file: 'src/CodingWithCalvin.GitKraken/source.extension.vsixmanifest'
+        extension-source-file: 'src/CodingWithCalvin.GitKraken/source.extension.cs'
 
-    - name: 2. Bootstrapping NuGet Installer
-      uses: nuget/setup-nuget@v1.1.1
+    - name: 2. Restoring Packages
+      run: nuget restore src/CodingWithCalvin.GitKraken.sln
     
-    - name: 3. Restoring Packages
-      run: nuget restore ./src/CodingWithCalvin.VSKraken.sln
-    
-    - name: 4. Building x64 Project
-      run: msbuild './src/CodingWithCalvin.VSKraken/CodingWithCalvin.VSKraken.csproj' /p:configuration='Release' /p:platform='x64'
+    - name: 3. Building Project
+      run: msbuild 'src/CodingWithCalvin.GitKraken/CodingWithCalvin.GitKraken.csproj' /p:configuration='Release' /p:platform='x64' /p:DeployExtension=False
 
-    - name: 5. Publishing x64 Build Artifact
-      uses: actions/upload-artifact@v3
+    - name: 4. Create Information File
+      uses: jsdaniell/create-json@v1.2.3
       with:
-        path: '${{ github.workspace }}\src\CodingWithCalvin.VSKraken\bin\x64\Release\CodingWithCalvin.VSKraken.vsix'
-        name: latest-x64
+        name: 'src/CodingWithCalvin.GitKraken/bin/x64/Release/CodingWithCalvin.GitKraken.info'
+        json: '{"sha":"${{ github.sha }}", "version":"${{ steps.step-version.outputs.version }}"}'
+    
+    - name: 5. Publishing Build Artifact
+      uses: actions/upload-artifact@v4
+      with:
+        path: |
+          src/CodingWithCalvin.GitKraken/bin/x64/Release/CodingWithCalvin.GitKraken.info
+          src/CodingWithCalvin.GitKraken/bin/x64/Release/CodingWithCalvin.GitKraken.vsix

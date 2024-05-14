@@ -4,20 +4,20 @@ A Visual Studio extension that adds a right-click context menu (on the solution 
 
 ## License
 
-[![License - MIT](https://img.shields.io/github/license/CalvinAllen/VSKraken?style=for-the-badge)](https://img.shields.io/github/license/CalvinAllen/VSKraken?style=for-the-badge)
+[![License - MIT](https://img.shields.io/github/license/CodingWithCalvin/VS-GitKraken?style=for-the-badge)](https://img.shields.io/github/license/CodingWithCalvin/VS-GitKraken?style=for-the-badge)
 
 ## Build Status
 
-[![GitHub Workflow Status](https://img.shields.io/github/workflow/status/CalvinAllen/VSKraken/Build%20and%20Deploy?logo=github&style=for-the-badge)](https://img.shields.io/github/workflow/status/CalvinAllen/VSKraken/Build%20and%20Deploy?logo=github&style=for-the-badge)
+[![GitHub Workflow Status](https://img.shields.io/github/workflow/status/CodingWithCalvin/VS-GitKraken/Build%20and%20Deploy?logo=github&style=for-the-badge)](https://img.shields.io/github/workflow/status/CodingWithCalvin/VS-GitKraken/Build%20and%20Deploy?logo=github&style=for-the-badge)
 
 ## Marketplace Status
 
-[![Marketplace Installations](https://img.shields.io/visual-studio-marketplace/i/coding-with-calvin.VSKraken?style=for-the-badge)](https://img.shields.io/visual-studio-marketplace/i/coding-with-calvin.VSKraken?style=for-the-badge) [![Marketplace Downloads](https://img.shields.io/visual-studio-marketplace/d/coding-with-calvin.VSKraken?style=for-the-badge)](https://img.shields.io/visual-studio-marketplace/d/coding-with-calvin.VSKraken?style=for-the-badge)
-[![Marketplace Version](https://img.shields.io/visual-studio-marketplace/v/coding-with-calvin.VSKraken?style=for-the-badge)](https://img.shields.io/visual-studio-marketplace/v/coding-with-calvin.VSKraken?style=for-the-badge) [![Marketplace Rating](https://img.shields.io/visual-studio-marketplace/r/coding-with-calvin.VSKraken?style=for-the-badge)](https://img.shields.io/visual-studio-marketplace/r/coding-with-calvin.VSKraken?style=for-the-badge)
+[![Marketplace Installations](https://img.shields.io/visual-studio-marketplace/i/CodingWithCalvin.VS-GitKraken?style=for-the-badge)](https://img.shields.io/visual-studio-marketplace/i/CodingWithCalvin.VS-GitKraken?style=for-the-badge) [![Marketplace Downloads](https://img.shields.io/visual-studio-marketplace/d/CodingWithCalvin.VS-GitKraken?style=for-the-badge)](https://img.shields.io/visual-studio-marketplace/d/CodingWithCalvin.VS-GitKraken?style=for-the-badge)
+[![Marketplace Version](https://img.shields.io/visual-studio-marketplace/v/CodingWithCalvin.VS-GitKraken?style=for-the-badge)](https://img.shields.io/visual-studio-marketplace/v/CodingWithCalvin.VS-GitKraken?style=for-the-badge) [![Marketplace Rating](https://img.shields.io/visual-studio-marketplace/r/CodingWithCalvin.VS-GitKraken?style=for-the-badge)](https://img.shields.io/visual-studio-marketplace/r/CodingWithCalvin.VS-GitKraken?style=for-the-badge)
 
 ## Prerequisite
 
-In order to use this extension, you must have Visual Studio 2022, as well as the GitKraken Client installed.
+In order to use this extension you must have the GitKraken Client installed.
 
 You can [download the GitKraken Client for free](https://www.gitkraken.com).
 
@@ -26,5 +26,7 @@ You can [download the GitKraken Client for free](https://www.gitkraken.com).
 The extension will automatically find GitKraken's `Update.exe` when it's located at in the default install directory. If it's installed in a custom location, you can easily change it in the settings dialog.
 
 ## Contribute
+
+Contributions are welcome! Issues, PRs, etc. While it may seem this extension is "done", who knows what the future may hold for it?
 
 For cloning and building this project yourself, make sure to install the [Extensibility Essentials 2022 extension](https://marketplace.visualstudio.com/items?itemName=MadsKristensen.ExtensibilityEssentials2022) for Visual Studio which enables some features used by this project.

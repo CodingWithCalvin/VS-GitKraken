@@ -1,14 +1,14 @@
-﻿using Microsoft.VisualStudio.Shell;
-using System;
+﻿using System;
 using System.ComponentModel.Design;
 using System.Diagnostics;
-using EnvDTE80;
-using EnvDTE;
 using System.Windows.Forms;
-using CodingWithCalvin.VSKraken.Helpers;
-using CodingWithCalvin.VSKraken.Dialogs;
+using CodingWithCalvin.GitKraken.Dialogs;
+using CodingWithCalvin.GitKraken.Helpers;
+using EnvDTE;
+using EnvDTE80;
+using Microsoft.VisualStudio.Shell;
 
-namespace CodingWithCalvin.VSKraken.Commands
+namespace CodingWithCalvin.GitKraken.Commands
 {
     internal class OpenCommand
     {
@@ -23,11 +23,15 @@ namespace CodingWithCalvin.VSKraken.Commands
             this._package = package;
             this._settings = settings;
 
-            var commandService = (OleMenuCommandService)ServiceProvider.GetService(typeof(IMenuCommandService));
+            var commandService = (OleMenuCommandService)
+                ServiceProvider.GetService(typeof(IMenuCommandService));
 
             if (commandService != null)
             {
-                var menuCommandId = new CommandID(PackageGuids.guidOpenInGKCmdSet, PackageIds.OpenInGK);
+                var menuCommandId = new CommandID(
+                    PackageGuids.guidOpenInGKCmdSet,
+                    PackageIds.OpenInGK
+                );
                 var menuItem = new MenuCommand(OpenPath, menuCommandId);
                 commandService.AddCommand(menuItem);
             }
@@ -48,13 +52,18 @@ namespace CodingWithCalvin.VSKraken.Commands
                 var gitRepository = ProjectHelpers.GetSelectedPath(service);
                 var gitkrakenUpdateExecutablePath = _settings.UpdateExecutablePath;
 
-                if (!string.IsNullOrEmpty(gitRepository) && !string.IsNullOrEmpty(gitkrakenUpdateExecutablePath))
+                if (
+                    !string.IsNullOrEmpty(gitRepository)
+                    && !string.IsNullOrEmpty(gitkrakenUpdateExecutablePath)
+                )
                 {
                     OpenExecutable(gitRepository, gitkrakenUpdateExecutablePath);
                 }
                 else
                 {
-                    MessageBox.Show("Unable to find a compatible git repository for the selected solution.");
+                    MessageBox.Show(
+                        "Unable to find a compatible git repository for the selected solution."
+                    );
                 }
             }
             catch (Exception ex)
@@ -63,13 +72,17 @@ namespace CodingWithCalvin.VSKraken.Commands
             }
         }
 
-        private static void OpenExecutable(string gitRepository, string gitkrakenUpdateExecutablePath)
+        private static void OpenExecutable(
+            string gitRepository,
+            string gitkrakenUpdateExecutablePath
+        )
         {
             var startInfo = new ProcessStartInfo
             {
                 WorkingDirectory = gitRepository,
                 FileName = $@"{gitkrakenUpdateExecutablePath}",
-                Arguments = $@"--processStart=gitkraken.exe --process-start-args=""-p ""{ gitRepository }""",
+                Arguments =
+                    $@"--processStart=gitkraken.exe --process-start-args=""-p ""{gitRepository}""",
                 CreateNoWindow = true,
                 WindowStyle = ProcessWindowStyle.Hidden,
                 UseShellExecute = false
