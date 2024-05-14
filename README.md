@@ -1,6 +1,6 @@
 # VS Kraken
 
-A Visual Studio extension that adds a right-click context menu (on the solution explorer node, specifically) command that allows you to open the the cooresponding Git repository directly in the GitKraken Client.  More features to come! :)
+A Visual Studio extension that adds a right-click context menu (on the solution explorer node, specifically) command that allows you to open the the cooresponding Git repository directly in the GitKraken Desktop application.  More features to come! :)
 
 ## License
 
@@ -17,9 +17,9 @@ A Visual Studio extension that adds a right-click context menu (on the solution 
 
 ## Prerequisite
 
-In order to use this extension you must have the GitKraken Client installed.
+In order to use this extension you must have the GitKraken Desktop application installed.
 
-You can [download the GitKraken Client for free](https://www.gitkraken.com).
+You can [download GitKraken Desktop for free](https://www.gitkraken.com).
 
 ## Settings
 
